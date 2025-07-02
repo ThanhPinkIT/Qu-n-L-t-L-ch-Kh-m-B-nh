@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const configViewEngine = require('./config/viewEngine');
 const initWebRoutes = require('./route/web');
+const connectDB = require('./config/connectDB');
 require('dotenv').config();
 
 const app = express();
@@ -16,6 +17,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Cấu hình router
 initWebRoutes(app);
+
+connectDB();
 
 // Khởi server
 const port = process.env.PORT || 6969;
