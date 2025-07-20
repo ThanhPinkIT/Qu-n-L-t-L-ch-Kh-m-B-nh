@@ -15,6 +15,12 @@ function initWebRoutes(app) {
         res.send('Hello world with ThanhPink');
     });
 
+    router.get('/get-crud', homeController.displayGetCRUD);
+    router.get('/edit-crud', homeController.getEditCRUD);
+
+    router.post('/put-crud', homeController.putCRUD);
+    router.get('/delete-crud', homeController.deleteCRUD);
+
     // gắn lên app
     return app.use('/', router);
 }
